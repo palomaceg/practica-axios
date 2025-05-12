@@ -1,25 +1,45 @@
 // GET REQUEST
-async function getTodos() {
+function getTodos() {
   console.log("GET");
   // aquí tu código
+  axios.get('https://jsonplaceholder.typicode.com/posts')
+    // .then((res) => console.log(res)) //con este solo se va a mostrar el resultado por consola. se comenta para poder llamar a la función de mostrar en pantalla con showOutput(res)
+    .then((res) => showOutput(res))
+    .catch((err) => console.log(err))
 }
 
+
 // POST REQUEST
-async function addTodo() {
+function addTodo() {
   console.log("POST");
   // aquí tu código
+  axios.post('https://jsonplaceholder.typicode.com/posts', {
+    title: 'New Post',
+    body: 'Body title',
+  })
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err))
 }
 
 // PUT/PATCH REQUEST
-async function updateTodo() {
+function updateTodo() {
   console.log("PUT/PATCH");
   // aquí tu código
+  axios.put('https://jsonplaceholder.typicode.com/posts/1', {
+    title: 'Post Updated',
+    body: 'Body updated',
+  })
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err))
 }
 
 // DELETE REQUEST
-async function removeTodo() {
+function removeTodo() {
   console.log("DELETE");
   // aquí tu código
+  axios.delete('https://jsonplaceholder.typicode.com/posts/1')
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err)) 
 }
 
 // Show output in browser
